@@ -1,3 +1,35 @@
+/* Raleway and Merriweather are custom fonts installed in HTML */
+
+h1 {
+  font-family: 'Raleway', sans-serif;
+  font-size: 48px;
+}
+
+h2 {
+  font-family: 'Raleway', 'sans-serif';
+  font-size: 24px;
+}
+
+p {
+  font-family: 'Merriweather', serif;
+  font-size: 18px;
+}
+
+img {
+  height: 500px;
+  width: 800px;
+  border: solid;
+  border-width: 5px;
+}
+
+.carousel {
+  background-color: white;
+  border-radius: 50%;
+  width: 15px;
+  height: 15px;
+  margin: 10px;
+}
+
 #projectDescriptionBox {
     border: 3px solid black;
     width: 80%;
