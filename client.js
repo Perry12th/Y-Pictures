@@ -19,20 +19,26 @@ window.onload = function(){
     $("#clickme").click(debug_request);
 }
 
+
 function debug_request(){
     //get the birb video
     var request = JSON.stringify({
         'name':identity,
+        'serverURL':serverLocation,
         'action':'getBirb'})
     xhttp.open("POST", serverLocation+"?data="+request, false); //stop the thread just for debugging purposes
     xhttp.send();
 
     //add a video element if you get the file
     if(xhttp.status == 200){ 
-        //TODO the page *is* receiving data (5mb video according to inspect element) but how do you parse it into something you can view???
         alert("successfully received data");
         var video = document.createElement("video");
-        $(video).attr("src", xhttp.response);
+
+        var videoFile = JSON.parse(xhttp.response)["path"];
+        $(video).attr("type", "video/mp4");
+        $(video).attr("src", videoFile);
+
         $("#content").append(video);
     }
+    //TODO: make the birb video the first thing sent to the client and if error 404 it gets played along with the stickbug music 
 }

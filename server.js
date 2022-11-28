@@ -15,15 +15,19 @@ app.post('/', (req, res) =>{
     console.log("received a POST");
     var data = JSON.parse(req.query['data']) //searches for "data?=<...> and the stuff after it"
     var action = data["action"] //gets the value of "action" from data
+    var clientURL = data["serverURL"];
     console.log("action: " + action);
+    
+    var toSend = JSON.stringify({
+        "action":"getFile",
+        "path":clientURL+"/pictures/dipporb.mp4"
+    })
 
-    if(action == "getBirb"){
-        res.sendFile(path.resolve('./public/pictures/dipporb.mp4'));
-    }
+    res.send(toSend); //stop the thread just for debugging purposes
 })
 
 app.listen(3000);
 
 //public/static directories: https://www.tutorialspoint.com/expressjs/expressjs_static_files.htm 
-//app.use(express.static('public'));
+app.use(express.static('public'));
 
