@@ -7,7 +7,7 @@ h1 {
 
 h2 {
   font-family: 'Raleway', 'sans-serif';
-  font-size: 24px;
+  font-size: 25px;
 }
 
 p {
@@ -15,87 +15,170 @@ p {
   font-size: 18px;
 }
 
-img {
-  height: 500px;
-  width: 800px;
-  border: solid;
-  border-width: 5px;
+#imageListBox{
+  position: relative;
+  width: 100%;
+  margin: auto;
+  text-align: center;
+  overflow: auto;
 }
 
-.carousel {
+#imageListBox h2 {
+  padding: 20px;
+}
+
+.image_container {
   background-color: white;
+  margin: auto;
+  height: 400px;
+  width: 100%;
+  max-width: 800px;
+  border: solid;
+  border-width: 2px;
+}
+
+/* The idea is to make all but 1 image display none as default. */
+.slider {
+  display: none;
+}
+
+.arrow {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  border-radius: 25%;
+  color: grey;
+  z-index: 2;
+  
+  margin-top: -20px;
+  padding: 20px;
+  font-weight: bold;
+  font-size: 16px;
+  justify-content: center;
+  align-content: center;
+
+}
+
+.arrow:hover {
+  background-color: lightgrey;
+}
+
+#left_arrow {
+  left: 30%;
+}
+
+#right_arrow {
+  right: 30%;
+}
+
+.slider {
+  height: 100%;
+}
+
+.dots {
+  display: inline-block;
+  cursor: pointer;
+  background-color: lightgray;
   border-radius: 50%;
-  width: 15px;
-  height: 15px;
+  width: 20px;
+  height: 20px;
   margin: 10px;
 }
 
+.active, .dot:hover {
+  background-color: #4b4b4b;
+}
+
+.button {
+  border-color: #ffffff5b;
+  border-radius: 5%;
+  box-shadow: 0px 5px 21px -5px #cdd1e1;
+  background-color: #b0dde4;
+  font-family: 'Merriweather', 'sans-serif';
+
+  padding: 15px;
+  border-color: #ffffff5b;
+  border-radius: 5%;
+  box-shadow: 0px 5px 21px -5px #cdd1e1;
+  background-color: #b0dde4;
+  font-family: 'Merriweather', 'sans-serif';
+}
+
+#input {
+  padding: 15px;
+  border-style: solid;
+  font-family: 'Merriweather', 'sans-serif';
+}
+
+#settingsBox button {
+  font-family: 'Merriweather', 'sans-serif';
+  padding: 15px;
+  border-color: #ffffff5b;
+  border-radius: 5%;
+  background-color: #b0dde4;
+}
+
 #projectDescriptionBox {
-    border: 3px solid black;
-    width: 80%;
-    margin: auto;
-    text-align: center;
-    overflow: auto;
-    padding: 20px;
+  width: 80%;
+  margin: auto;
+  text-align: center;
+  overflow: auto;
+  padding: 20px;
+  border-style: solid;
+  border-width: 2px;
   }
-  #settingsBox {
-    border: 3px solid black;
-    width: 80%;
-    margin: auto;
-    text-align: center;
-    overflow: auto;
-    padding: 20px;
-  }
-  #projectDescriptionBoxHeader{
-    margin: auto;
-    text-align: left;
-    overflow: auto;
-  }
-  #imageListBox{
-    border: 3px solid black;
-    width: 80%;
-    margin: auto;
-    text-align: center;
-    overflow: auto;
-    padding: 20px;
-  }
-  #imageBox{
-    border: 3px solid black;
-    width: 80%;
-    margin: auto;
-    text-align: center;
-    overflow: auto;
-    padding: 20px;
-  }
-  #imageButtons{
-    border: 3px solid black;
-    width: 80%;
-    margin: auto;
-    text-align: center;
-    overflow: auto;
-    padding: 20px;
-  }
-  #weatherBox{
-    border: 3px solid black;
-    width: 80%;
-    margin: auto;
-    text-align: center;
-    overflow: auto;
-    padding: 20px;
-  }
-  #logo{
-    width: 80%;
-    margin: auto;
-    text-align: center;
-    overflow: auto;
-    padding: 20px;
-  }
-  #copyright{
-    margin: auto;
-    text-align: left;
-    overflow: auto;
-    padding: 20px;
-  }
-  #background{
-    
-  }
+#settingsBox {
+  border-style: solid;
+  border-width: 2px;
+  width: 40%;
+  margin: auto;
+  margin-top: 40px;
+  text-align: center;
+  overflow: auto;
+  padding: 20px;
+}
+#projectDescriptionBoxHeader {
+  margin: auto;
+  text-align: left;
+  overflow: auto;
+}
+
+#imageBox {
+  width: 80%;
+  margin: auto;
+  text-align: center;
+  overflow: auto;
+  padding: 20px;
+}
+
+#imageButtons {
+  width: 100%;
+  margin: auto;
+  text-align: center;
+  overflow: auto;
+  padding: 20px;
+}
+#weatherBox {
+  width: 80%;
+  margin: auto;
+  text-align: center;
+  overflow: auto;
+  padding: 20px;
+}
+#logo {
+  width: 100%;
+  margin: auto;
+  text-align: center;
+  overflow: auto;
+  padding: 20px;
+}
+#copyright {
+  margin: auto;
+  text-align: left;
+  overflow: auto;
+  padding: 20px;
+}
+#background {
+  background-color: #f2f2f6;
+}

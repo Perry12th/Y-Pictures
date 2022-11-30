@@ -25,33 +25,82 @@
         
         If you do find this paragraph tool useful, please do us a favor and let us know how you're using it. It's greatly beneficial for us to know the different ways this tool is being used so we can improve it with updates. This is especially true since there are times when the generators we create get used in completely unanticipated ways from when we initially created them. If you have the time, please send us a quick note on what you'd like to see changed or added to make it better in the future</P>
   </div>
+  <!-- Main box -->
   <div id="imageListBox">
     <h2>ImageList</h2>
 
-    <!-- We need to discuss what type of images we need. AND we need to determine what size the images should be. So I can use it as a guideline for everything else. -->
-    <img src = "https://i0.wp.com/anitrendz.net/news/wp-content/uploads/2022/09/bocchitherock_hitoricharacterpvscreenshot.png?fit=1920%2C1080&ssl=1" alt = "An image">
-    
-    <div id = "row_1">
-      <button type = "radio" class = "carousel" id = "carousel_1"></button>
-      <button type = "radio" class = "carousel" id = "carousel_1"></button>
-      <button type = "radio" class = "carousel" id = "carousel_1"></button>
-      <button type = "radio" class = "carousel" id = "carousel_1"></button>
-      <button type = "radio" class = "carousel" id = "carousel_1"></button>
-    </div>
+    <!-- Full Image Selection -->
+    <div class = "image_container">
 
-    <div id = "row_2">
-      <button type = "radio" class = "carousel" id = "carousel_1"></button>
-      <button type = "radio" class = "carousel" id = "carousel_1"></button>
-      <button type = "radio" class = "carousel" id = "carousel_1"></button>
-      <button type = "radio" class = "carousel" id = "carousel_1"></button>
-      <button type = "radio" class = "carousel" id = "carousel_1"></button>
+      <div class = "slider" style = "display: block;">
+        <img src = "" alt = "image 1">
+      </div>
+
+      <div class = "slider">
+        <img src = "" alt = "image 2">
+      </div>
+
+      <div class = "slider">
+        <img src = "" alt = "image 3">
+      </div>
+      
+      <div class = "slider">
+        <img src = "" alt = "image 4">
+      </div>
+        
+      <div class = "slider">
+        <img src = "" alt = "image 5">
+      </div>
+        
+      <div class = "slider">
+        <img src = "" alt = "image 6">
+      </div>
+        
+      <div class = "slider">
+        <img src = "" alt = "image 7">
+      </div>
+        
+      <div class = "slider">
+        <img src = "" alt = "image 8">
+      </div>
+        
+      <div class = "slider">
+        <img src = "" alt = "image 9">
+      </div>
+        
+      <div class = "slider">
+        <img src = "" alt = "image 10">
+      </div>
+
+      <!-- Left & Right Arrows -->
+      <a class = "arrow" id = "left_arrow" onclick = addSlide(-1)><</a>
+      <a class = "arrow" id = "right_arrow" onclick = addSlide(1)>></a>
+    </div>
+    
+      <!-- Dots: Instead of buttons, maybe I should use span? div? section? -->
+      <div style = "text-align: center">
+        <div id = "row_1">
+          <span class = "dots" onclick = "currentSlide(1)"></span>
+          <span class = "dots" onclick = "currentSlide(2)"></span>
+          <span class = "dots" onclick = "currentSlide(3)"></span>
+          <span class = "dots" onclick = "currentSlide(4)"></span>
+          <span class = "dots" onclick = "currentSlide(5)"></span>
+        </div>
+        <div id = "row_2">
+          <span class = "dots" onclick = "currentSlide(6)"></span>
+          <span class = "dots" onclick = "currentSlide(7)"></span>
+          <span class = "dots" onclick = "currentSlide(8)"></span>
+          <span class = "dots" onclick = "currentSlide(9)"></span>
+          <span class = "dots" onclick = "currentSlide(10)"></span>
+        </div>
+      </div>
     </div>
 
   </div>
   <div id="imageButtons">
-  <input></input>
-  <button>Enter</button>
-  <button>Download</button>
+  <input id = "input"></input>
+  <button class = "button" id = "enter">Enter</button>
+  <button class = "button" id = "download">Download</button>
   </div>
   <div id="imageBox">
     <h2>ImageDisplay</h2>
@@ -62,9 +111,9 @@
 
   <div id="settingsBox">
     <h2>Settings</h2>
-    <button onclick="ToggleDarkMode()">Enable Dark Mode</button>
-    <button onclick="ToggleBackgroundMusic()">Disable Background Music</button>
-    <button onclick="ToggleSoundEffects()">Enable Sound Effects</button>
+    <button id = "colorMode" onclick="ToggleDarkMode()">Enable Dark Mode</button>
+    <button id = "musicMode" onclick="ToggleBackgroundMusic()">Disable Background Music</button>
+    <button id = "soundMode" onclick="ToggleSoundEffects()">Enable Sound Effects</button>
   </div>
 
   <br>
