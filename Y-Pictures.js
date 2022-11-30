@@ -69,12 +69,14 @@ function ToggleDarkMode()
 
 function ToggleBackgroundMusic()
 {
+    // Use these to change button's text
     // musicMode.textContent = "Enable Background Music";
     // musicMode.textContent = "Disable Background Music";
 }
 
 function ToggleSoundEffects()
 {
+    // Use these to change button's text
     // soundMode.textContent = "Disable Sound Effects";
     // soundMode.textContent = "Disable Sound Effects";
 }
