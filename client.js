@@ -1,3 +1,5 @@
+const { query } = require("express");
+
 var serverLocation = "http://localhost:3000";
 var content;
 var identity = prompt("gimme a name");
@@ -29,7 +31,23 @@ function debug_HandleRequest(data, status){
 }
 
 
-function queryImages(){
+function queryImages(queryName){
+    /*
+    query server ->
+    list of matching names and images <-
+    cache the images (chrome already does this?)
+    update the carousel and corresponding names
+        array of corresponding names and image paths
+    */
+    var request = JSON.stringify({
+        "name":identity,
+        "action":"queryImages",
+        "queryName":queryName
+    });
 
+    $.post(serverLocation+"?data="+request, handleQueryImages)
+}
+function handleQueryImages(data, status){
 
 }
+
