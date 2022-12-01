@@ -24,7 +24,6 @@ function debug_request(){
     //get the birb video
     var request = JSON.stringify({
         'name':identity,
-        'serverURL':serverLocation,
         'action':'getBirb'})
     xhttp.open("POST", serverLocation+"?data="+request, false); //stop the thread just for debugging purposes
     xhttp.send();
@@ -36,9 +35,10 @@ function debug_request(){
 
         var videoFile = JSON.parse(xhttp.response)["path"];
         $(video).attr("type", "video/mp4");
-        $(video).attr("src", videoFile);
+        $(video).attr("src", serverLocation+videoFile);
 
         $("#content").append(video);
     }
     //TODO: make the birb video the first thing sent to the client and if error 404 it gets played along with the stickbug music 
 }
+

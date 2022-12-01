@@ -15,12 +15,11 @@ app.post('/', (req, res) =>{
     console.log("received a POST");
     var data = JSON.parse(req.query['data']) //searches for "data?=<...> and the stuff after it"
     var action = data["action"] //gets the value of "action" from data
-    var clientURL = data["serverURL"];
     console.log("action: " + action);
     
     var toSend = JSON.stringify({
         "action":"getFile",
-        "path":clientURL+"/pictures/dipporb.mp4"
+        "path":"/pictures/dipporb.mp4"
     })
 
     res.send(toSend); //stop the thread just for debugging purposes
