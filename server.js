@@ -38,8 +38,9 @@ app.post('/', (req, res) =>{
             break;
         }
         default: console.log("error: no action at all or no matching action for: " + action);
+        }
     }
-})
+)
 
 
 //returns a list of image <paths/objects>
