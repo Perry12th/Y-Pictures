@@ -90,6 +90,12 @@ function handleQueryImages(data, status){
         $(notice).attr("id", "multipleQueryResultsNotice");
         $(imageBox_images).append(notice);
     }
+    if(paths.length == 0){
+        var notice = document.createElement("p");
+        $(notice).html("No results");
+        $(notice).attr("id", "multipleQueryResultsNotice");
+        $(imageBox_images).append(notice);
+    }
 
     //finally append all the matching results
     for(var i = 0; i < paths.length; i++){
@@ -113,7 +119,7 @@ function handleQueryImages(data, status){
 
         $(imageBox_images).append(document.createElement("br"));
     }
-    if(paths.length== 1){
+    if(paths.length == 1){
         selectImage("imageBoxImg0");
     }
     
