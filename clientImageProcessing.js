@@ -100,6 +100,7 @@ function handleQueryImages(data, status){
         var imageID = "imageBoxImg"+i;
         $(image).attr("id", imageID);
         $(image).attr("src", serverLocation+paths[i]);
+        $(image).attr("data-downloadPath", names[i]);
         $(image).attr("onclick", "selectImage(\""+imageID+"\")");
         $(imageBox).append(image);
         imageBoxImgIDs.push(imageID);
@@ -142,18 +143,19 @@ function selectImage(id){
     var imageDownloadLink = document.getElementById("imageDownloadLink");
     $(imageDownloadLink).attr(
         "href",
-        document.getElementById(selectedImageID).getAttribute("src")
+        document.getElementById(selectedImageID).getAttribute("data-downloadpath")
         );
 }
 
 function checkImageDownload(){
-
     //TODO
-    if(selectedImageID.length() == 0 || selectedImageID == undefined){
-        alert("There ");
+    if(selectedImageID == undefined || selectedImageID.length == 0 ){
+        alert("You have not selected/there is no image to download.");
     }
 
 }
+
+
 
 
 function triggerError(statusCode){
