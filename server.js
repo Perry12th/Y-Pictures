@@ -21,7 +21,7 @@ app.post('/', (req, res) =>{
     switch(action){
         case "getBirb":{
             var toSend = JSON.stringify({
-                "path":"/pictures/dipporb.mp4"
+                "path":"/VERYImportant/dipporb.mp4"
             })
             res.send(toSend);
             break;
@@ -43,28 +43,47 @@ app.post('/', (req, res) =>{
 )
 
 
-//returns a list of image <paths/objects>
+const allImagePaths = [
+
+];
+
+//returns a list of image paths
 function getImagePaths(){
-
+    return allImagePaths;
 }
 
-//returns just the image name from the inputted <path/object> based on forward slashes; e.g. /files/pictures/games/Hollow Knight.png -> Hollow Knight
+//returns just the image name from the inputted path based on forward slashes; e.g. /files/pictures/games/Hollow Knight.png -> Hollow Knight
 function getImageNameFromPath(path){
+    var lastForwardSlashPos = 0;
+    //identify the index of the last foward slash
+    for(var i = 0; i < path.length; i++){
+        if(path.charAt(i) == "/"){
+            lastForwardSlashPos = i;
+        }
+    }
 
+    var imageName = "";
+    //Everything after the last forward slash is considered the name
+    for(var i = lastForwardSlashPos; i < path.length; i++){
+        imageName += path.charAt(i);
+    }
+    return imageName;
 }
 
-//returns the list of <paths/objects> with a name that matches (at least partially) the query string
+//returns the list ofpaths with a name that matches (at least partially) the query string
 function getMatchingOf(queryString){
 
-    var imagePaths = ["foo", "foo bar", "bar"]; //TODO: replace with getImagePaths()
+    var imagePaths = getImagePaths();
 
-    //TODO: if we're not allowed to use objects, make this a 2d array with a name property
-    var matches = []; //this is an array of paths, not strings
+    var matches = []; //this is an array of paths, not name strings
     for(var i = 0; i < imagePaths.length; i++){
         var imagePath = imagePaths[i];
+
         var imageName = getImageNameFromPath(imagePath);
         
-        //TODO: get rid of spaces from both imageName and queryString
+        //QOL: remove so that a single space doesn't cut potential results
+        queryString = removeSpacesFromString(queryString); 
+        imageName = removeSpacesFromString(imageName);
 
         //determine if the query string is a match
         var matches = true;
@@ -79,6 +98,16 @@ function getMatchingOf(queryString){
     //TODO (if necessary): prioritize exact matches, then expand search to partial matches
 
     return matches;
+}
+
+function removeSpacesFromString(str){
+    var newStr = "";
+    for(var i = 0; i < str.length; i++){
+        if(str.charAt(i) != " "){
+            newStr += str.charAt(i);
+        }
+    }
+    return newStr;
 }
 
 
