@@ -165,6 +165,21 @@ p {
   overflow: auto;
   padding: 20px;
 }
+#weatherCardBox{
+  display:flex;
+  justify-content: center;
+}
+.weatherCard{
+  border-style: solid;
+  border-width: 2px;
+  background: #a1d5e2;
+}
+.weatherDay{
+  font-family: 'Merriweather', 'sans-serif';
+}
+.cardTemp{
+  font-family: 'Merriweather', 'sans-serif';
+}
 #logo {
   width: 100%;
   margin: auto;

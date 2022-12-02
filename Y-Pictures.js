@@ -1,4 +1,9 @@
 var darkMode = false;
+var audioEnabled = false;
+var musicEnabled = false;
+var clickEffect = new Audio('audio/clickEffect.wav');
+var lofiGirlMusic = new Audio('audio/lofiGirlMusic.mp3');
+
 
 function ToggleDarkMode()
 {
@@ -65,24 +70,65 @@ function ToggleDarkMode()
         colorMode.textContent = "Disable Dark Mode";
     }
     darkMode = !darkMode;
+
+    PlayClickEffect();
 }
 
 function ToggleBackgroundMusic()
 {
     // Use these to change button's text
-    // musicMode.textContent = "Enable Background Music";
-    // musicMode.textContent = "Disable Background Music";
+    musicEnabled = !musicEnabled;
+    var musicMode = document.getElementById("musicMode");
+    if (musicEnabled)
+    {
+        startMusic();
+        musicMode.textContent = "Disable Background Music";
+    }
+    else
+    {
+        stopMusic();
+        musicMode.textContent = "Enable Background Music";
+    }
+
+    PlayClickEffect();
+}
+
+function startMusic()
+{
+    lofiGirlMusic.play();
+    lofiGirlMusic.loop = true;
+}
+
+function stopMusic()
+{
+    lofiGirlMusic.pause();
 }
 
 function ToggleSoundEffects()
 {
     // Use these to change button's text
+
+    audioEnabled = !audioEnabled;
+    var soundMode = document.getElementById("soundMode");
     // soundMode.textContent = "Disable Sound Effects";
-    // soundMode.textContent = "Disable Sound Effects";
+    if (audioEnabled)
+    {
+        soundMode.textContent = "Disable Sound Effects";
+    }
+    else
+    {
+        soundMode.textContent = "Enable Sound Effects";
+    }
+
+    PlayClickEffect();
 }
 
 function PlayClickEffect()
 {
+    if (audioEnabled)
+    {
+        clickEffect.play();
+    }
 }
 
 // Sub slider algorithm
@@ -92,10 +138,12 @@ slide(counter)
 
 function addSlide(num) {
     slide(counter = counter + num)
+    PlayClickEffect();
 }
 
 function currentSlide(num) {
     slide(counter = num);
+    PlayClickEffect();
 }
 
 // Main slider algorithm
