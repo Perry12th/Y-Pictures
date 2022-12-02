@@ -27,14 +27,23 @@ app.post('/', (req, res) =>{
             break;
         }
         case "queryImages":{
-            var queryName = action["queryName"];
+            //client's query string
+            var queryName = data["queryName"];
 
+            console.log("query name: "+queryName);
+
+            //*all* the image paths matching the client's query string
             var paths = getMatchingOf(queryName);
 
+            console.log("matches: "+paths);//debug
+            console.log("repspective match names: "+getNamesFromPaths(paths));//debug
+
+            //send both the paths and image names (they should be in order)
             var toSend = JSON.stringify({
-                "paths":paths,
-                "names":getNamesFromPaths(paths)
+                "paths":JSON.stringify(paths),
+                "names":JSON.stringify(getNamesFromPaths(paths))
             })
+            res.send(toSend);
             break;
         }
         default: console.log("error: no action at all or no matching action for: " + action);
@@ -44,8 +53,8 @@ app.post('/', (req, res) =>{
 
 
 const allImagePaths = [
-    "/public/games/Hollow Knight - Broken Vessel.jpg",
-    "/public/VERYImportant/dipporb.mp4"
+    "/games/Hollow Knight - Broken Vessel.jpg",
+    "/VERYImportant/dipporb.mp4"
 ];
 
 //returns a list of image paths
@@ -65,7 +74,7 @@ function getImageNameFromPath(path){
 
     var imageName = "";
     //Everything after the last forward slash is considered the name
-    for(var i = lastForwardSlashPos; i < path.length; i++){
+    for(var i = lastForwardSlashPos + 1; i < path.length; i++){
         imageName += path.charAt(i);
     }
     return imageName;
@@ -96,14 +105,14 @@ function getMatchingOf(queryString){
         imageName = removeSpacesFromString(imageName);
 
         //determine if the query string is a match
-        var matches = true;
-        for(var j = 0; j < imageName.length; j++){
-            if(imageName.charAt[j] != queryString.charAt[j]){
-                matches = false;
+        var doesMatch = true;
+        for(var j = 0; j < queryString.length; j++){
+            if(imageName.charAt(j) != queryString.charAt(j)){
+                doesMatch = false;
                 break;
             }
         }
-        if(matches){
+        if(doesMatch){
             matches.push(imagePath); //add it to matches if so
         } 
     }
@@ -121,9 +130,6 @@ function removeSpacesFromString(str){
     }
     return newStr;
 }
-
-
-
 
 app.listen(3000);
 //public/static directories: https://www.tutorialspoint.com/expressjs/expressjs_static_files.htm 
