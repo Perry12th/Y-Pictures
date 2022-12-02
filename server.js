@@ -54,7 +54,7 @@ app.post('/', (req, res) =>{
 
 const allImagePaths = [
     "/games/Hollow Knight - Broken Vessel.jpg",
-    "/VERYImportant/dipporb.mp4"
+    "/games/Elite Dangerous - The Cerulean Gas Giant - Maia A 1.jpg"
 ];
 
 //returns a list of image paths
