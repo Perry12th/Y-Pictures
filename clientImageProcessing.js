@@ -51,9 +51,6 @@ function getBirb(){
     }
 }
 
-
-
-
 function queryImages(){
     var queryName = document.getElementById("input").value;
     /*
@@ -74,7 +71,7 @@ var imageBoxImgIDs = [];
 var imageBoxImgCaptionIDs = [];
 function handleQueryImages(data, status){
 
-    clearImagesAndCaptions();
+    clearImageBox();
     /*
     It's bad QOL to clear the images before new results come in but it's clearer to show
     any error that comes up this way ¯\_(ツ)_/¯
@@ -85,11 +82,16 @@ function handleQueryImages(data, status){
     }
     
     var parsedData = JSON.parse(data);    
-    //alert(parsedData["paths"]);
-    //alert(parsedData["names"]);
-
     var paths = JSON.parse(parsedData["paths"]);
     var names = JSON.parse(parsedData["names"]);
+
+    
+    if(paths.length > 1){
+        var notice = document.createElement("p");
+        $(notice).html("There are multiple results for this query; please select an image to download.");
+        $(notice).attr("id", "multipleQueryResultsNotice");
+        $(imageBox).append(notice);
+    }
 
     //finally append all the matching results
     for(var i = 0; i < paths.length; i++){
@@ -98,6 +100,7 @@ function handleQueryImages(data, status){
         var imageID = "imageBoxImg"+i;
         $(image).attr("id", imageID);
         $(image).attr("src", serverLocation+paths[i]);
+        $(image).attr("onclick", "selectImage(\""+imageID+"\")");
         $(imageBox).append(image);
         imageBoxImgIDs.push(imageID);
 
@@ -113,8 +116,12 @@ function handleQueryImages(data, status){
 
         $(imageBox).append(document.createElement("br"));
     }
-
-    function clearImagesAndCaptions(){
+    if(paths.length== 1){
+        selectImage("imageBoxImg0");
+    }
+    
+    function clearImageBox(){
+        $("#multipleQueryResultsNotice").remove(); 
         for(var i = 0; i < imageBoxImgCaptionIDs.length; i++){
             $("#"+imageBoxImgCaptionIDs[i]).remove();
         }
@@ -123,10 +130,30 @@ function handleQueryImages(data, status){
         }
         imageBoxImgIDs = [];
         imageBoxImgCaptionIDs = [];
+
+        selectedImageID = "";
     }
 }
 
+var selectedImageID;
+function selectImage(id){
+    selectedImageID = id;
 
+    var imageDownloadLink = document.getElementById("imageDownloadLink");
+    $(imageDownloadLink).attr(
+        "href",
+        document.getElementById(selectedImageID).getAttribute("src")
+        );
+}
+
+function checkImageDownload(){
+
+    //TODO
+    if(selectedImageID.length() == 0 || selectedImageID == undefined){
+        alert("There ");
+    }
+
+}
 
 
 function triggerError(statusCode){

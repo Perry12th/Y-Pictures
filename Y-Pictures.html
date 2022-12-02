@@ -12,7 +12,7 @@
   <link href="Y-Pictures.css" type="text/css" rel="stylesheet">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
   <script src="Y-Pictures.js"></script>
-  <script src="client.js"></script>
+  <script src="clientImageProcessing.js"></script>
 </head>
 
 <h1 id="logo">Logo Team Y</h1>
@@ -102,7 +102,9 @@
   <div id="imageButtons">
   <input id = "input"></input>
   <button class = "button" id = "enter" onclick="queryImages()">Enter</button>
-  <button class = "button" id = "download">Download</button>
+  <a id="imageDownloadLink" target="_blank" download="download">
+    <button class = "button" id = "download" onclick="checkImageDownload()">Download</button>
+  </a>
   </div>
   <div id="imageBox">
     <h2>ImageDisplay</h2>
