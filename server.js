@@ -101,8 +101,9 @@ function getMatchingOf(queryString){
         var imageName = getImageNameFromPath(imagePath);
         
         //QOL: remove spaces so that a single space doesn't cut potential results
-        queryString = removeSpacesFromString(queryString); 
-        imageName = removeSpacesFromString(imageName);
+        //and also decapitalize, of course
+        queryString = removeSpacesFromString(queryString).toLowerCase(); 
+        imageName = removeSpacesFromString(imageName).toLowerCase();
 
         //determine if the query string is a match
         var doesMatch = true;

@@ -2,6 +2,8 @@ var serverLocation = "http://localhost:3000";
 var content;
 var identity = prompt("gimme a name");
 
+var birbContent;
+
 window.onload = function(){
     content = document.getElementById("content");
     getBirb();
@@ -28,7 +30,7 @@ function getBirb_HandleRequest(data, status){
     $(video).attr("type", "video/mp4");
     $(video).attr("src", serverLocation+videoFile);
 
-    //$("#content").append(video);
+    birbContent = video;
 }
 
 
@@ -47,9 +49,14 @@ function queryImages(){
         "queryName":queryName
     });
 
-    $.post(serverLocation+"?data="+request, handleQueryImages)
+    $.post(serverLocation+"?data="+request, handleQueryImages).fail(function(){triggerError("Generic error")})
 }
 function handleQueryImages(data, status){
+
+    if(status != "success"){
+        triggerError(status);
+    }
+    
     var parsedData = JSON.parse(data);    
     //alert(parsedData["paths"]);
     //alert(parsedData["names"]);
@@ -69,3 +76,7 @@ function handleQueryImages(data, status){
     }
 }
 
+function triggerError(statusCode){
+    $("#content").append(birbContent);
+    alert("Uh-oh, we got a problem \nError code: "+statusCode);
+}
