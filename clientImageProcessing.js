@@ -1,10 +1,10 @@
 var serverLocation = "http://localhost:3000";
-var imageBox;
+var imageBox_images;
 
 var birbContent;
 
 window.onload = function(){
-    imageBox = document.getElementById("imageBox");
+    imageBox_images = document.getElementById("imageBox_images");
     getBirb();
     populateImageList();
 }
@@ -67,8 +67,6 @@ function queryImages(){
 }
 
 //used to track what's currently in the image display so that they can be refresh with each inquiry
-var imageBoxImgIDs = [];
-var imageBoxImgCaptionIDs = [];
 function handleQueryImages(data, status){
 
     clearImageBox();
@@ -90,7 +88,7 @@ function handleQueryImages(data, status){
         var notice = document.createElement("p");
         $(notice).html("There are multiple results for this query; please select an image to download.");
         $(notice).attr("id", "multipleQueryResultsNotice");
-        $(imageBox).append(notice);
+        $(imageBox_images).append(notice);
     }
 
     //finally append all the matching results
@@ -102,35 +100,25 @@ function handleQueryImages(data, status){
         $(image).attr("src", serverLocation+paths[i]);
         $(image).attr("data-downloadPath", names[i]);
         $(image).attr("onclick", "selectImage(\""+imageID+"\")");
-        $(imageBox).append(image);
-        imageBoxImgIDs.push(imageID);
+        $(imageBox_images).append(image);
 
-        $(imageBox).append(document.createElement("br"));
+        $(imageBox_images).append(document.createElement("br"));
 
         //then, the captions
         var caption = document.createElement("p");
         var captionID = "imageBoxCaption"+i;
         $(caption).attr("id", captionID);
         $(caption).html(names[i]);
-        $(imageBox).append(caption);
-        imageBoxImgCaptionIDs.push(captionID);
+        $(imageBox_images).append(caption);
 
-        $(imageBox).append(document.createElement("br"));
+        $(imageBox_images).append(document.createElement("br"));
     }
     if(paths.length== 1){
         selectImage("imageBoxImg0");
     }
     
     function clearImageBox(){
-        $("#multipleQueryResultsNotice").remove(); 
-        for(var i = 0; i < imageBoxImgCaptionIDs.length; i++){
-            $("#"+imageBoxImgCaptionIDs[i]).remove();
-        }
-        for(var i = 0; i < imageBoxImgIDs.length; i++){
-            $("#"+imageBoxImgIDs[i]).remove();
-        }
-        imageBoxImgIDs = [];
-        imageBoxImgCaptionIDs = [];
+        $(imageBox_images).empty();
 
         selectedImageID = "";
     }
