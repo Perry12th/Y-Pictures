@@ -32,8 +32,8 @@ app.post('/', (req, res) =>{
             var paths = getMatchingOf(queryName);
 
             var toSend = JSON.stringify({
-                "paths":paths
-                //"names":names TODO
+                "paths":paths,
+                "names":getNamesFromPaths(paths)
             })
             break;
         }
@@ -44,7 +44,8 @@ app.post('/', (req, res) =>{
 
 
 const allImagePaths = [
-
+    "/public/games/Hollow Knight - Broken Vessel.jpg",
+    "/public/VERYImportant/dipporb.mp4"
 ];
 
 //returns a list of image paths
@@ -70,6 +71,15 @@ function getImageNameFromPath(path){
     return imageName;
 }
 
+//given an array of paths, return the name (everything after the last forward slash)
+function getNamesFromPaths(paths){
+    var names = [];
+    for(var i = 0; i < paths.length; i++){
+        names.push(getImageNameFromPath(paths[i]));
+    }
+    return names;
+}
+
 //returns the list ofpaths with a name that matches (at least partially) the query string
 function getMatchingOf(queryString){
 
@@ -81,7 +91,7 @@ function getMatchingOf(queryString){
 
         var imageName = getImageNameFromPath(imagePath);
         
-        //QOL: remove so that a single space doesn't cut potential results
+        //QOL: remove spaces so that a single space doesn't cut potential results
         queryString = removeSpacesFromString(queryString); 
         imageName = removeSpacesFromString(imageName);
 
@@ -93,7 +103,9 @@ function getMatchingOf(queryString){
                 break;
             }
         }
-        if(matches) matches.push(imagePath); //add it to matches if so
+        if(matches){
+            matches.push(imagePath); //add it to matches if so
+        } 
     }
     //TODO (if necessary): prioritize exact matches, then expand search to partial matches
 
