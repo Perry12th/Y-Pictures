@@ -17,6 +17,11 @@ function ToggleDarkMode()
     var settingsBox = document.getElementById("settingsBox");
     var copyright = document.getElementById("copyright");
     var colorMode = document.getElementById("colorMode");
+    var weatherTitle = document.getElementById("weatherTitle");
+    var stringTitle = document.getElementById("stringTitle");
+    var cardTemp = document.getElementsByClassName("cardTemp");
+
+    console.log(cardTemp);
 
     if (darkMode)
     {
@@ -24,19 +29,24 @@ function ToggleDarkMode()
         document.body.style.background = "#f2f2f6";
         
         projectDescriptionBox.style.color = "black";
+        projectDescriptionBox.style.backgroundColor = "#eee";
 
         projectDescriptionBoxHeader.style.color = "black";
         
 
-        imageListBox.style.borderBlockColor = "white";
+        imageListBox.style.borderBlockColor = "#eee";
         imageListBox.style.color = "black";
 
-        imageBox.style.borderBlockColor = "white";
+        stringTitle.style.color = "black";
+
+        imageBox.style.borderBlockColor = "#eee";
         imageBox.style.color = "black";
 
         weatherBox.style.color = "black";
+        weatherTitle.style.color = "black";
 
         settingsBox.style = "black";
+        settingsBox.style.backgroundColor = "#eee";
 
         copyright.style.color = "black";
 
@@ -44,26 +54,31 @@ function ToggleDarkMode()
     }
     else
     {
-        document.body.style.background = "gray";
+        document.body.style.background = "#121212";
 
-        logo.style.color = "#f2f2f6";
+        logo.style.color = "#eee";
 
-        projectDescriptionBox.style.color = "#f2f2f6";
+        projectDescriptionBox.style.color = "#eee";
+        projectDescriptionBox.style.backgroundColor = "#152028";
 
-        projectDescriptionBoxHeader.style.color = "#f2f2f6";
+        projectDescriptionBoxHeader.style.color = "#eee";
         
 
         imageListBox.style.borderBlockColor = "black";
-        imageListBox.style.color = "#f2f2f6";
 
         imageBox.style.borderBlockColor = "black";
-        imageBox.style.color = "#f2f2f6";
+        imageBox.style.color = "#eee";
 
-        weatherBox.style.color = "#f2f2f6";
+        stringTitle.style.color = "#eee";
 
-        settingsBox.style.color = "#f2f2f6";
+        weatherBox.style.borderColor = "black";
+        weatherTitle.style.color = "#eee";
 
-        copyright.style.color = "#f2f2f6";
+        settingsBox.style.color = "#eee";
+        settingsBox.style.backgroundColor = "#152028";
+        settingsBox.style.borderColor = "#eee";
+
+        copyright.style.color = "#eee";
 
         colorMode.textContent = "Disable Dark Mode";
     }
@@ -145,11 +160,12 @@ function slide(num) {
         counter = slider.length;
     }
 
-    // Slider returns an array, make all images display none.
+    // slider returns an array, make all images display none.
     for (var i = 0; i < slider.length; i++) {
         slider[i].style.display = "none";
     }
 
+    // dots returns an array, make all dots nothing
     for (var i = 0; i < dots.length; i++) {
         dots[i].className = dots[i].className.replace("active", "");
     }

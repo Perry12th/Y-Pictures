@@ -29,12 +29,17 @@
     <br>
     <p>When the button is pressed,
       there are two results that will occur: it will either fail or the string is sucessfully received and the server will send back an image. There is a custom weather API built on
-      the website to view the weather and temperature ranging from Sunday to Saturday. At the very bottom of the page, there are optional settings the user can choose to satisfy their
-      viewing experience. They can either change the background-color, activate background-music or, enable sound effects on buttons.</p>
+      the website to view the weather and temperature ranging from Saturday to Friday. At the very bottom of the page, there are optional settings the user can choose to satisfy their
+      viewing experience. They can either change the background-color, listen to music or, enable sound effects on buttons.
+    </p>
+    <br>
+    <p>
+      Please note: You must install Node JS in order to connect to the database.
+    </p>
   </div>
   <!-- Main box -->
   <div id="imageListBox">
-    <h2>String List</h2>
+    <h2 id = "stringTitle">String List</h2>
 
     <!-- Full String List Selection -->
     <!-- Each slide will contain a string input for the user to insert into the textbox -->
@@ -86,7 +91,7 @@
     
       <div style = "text-align: center">
         <div id = "row_1">
-          <span class = "dots" onclick = "currentSlide(1)"></span>
+          <span class = "dots active" onclick = "currentSlide(1)"></span>
           <span class = "dots" onclick = "currentSlide(2)"></span>
           <span class = "dots" onclick = "currentSlide(3)"></span>
           <span class = "dots" onclick = "currentSlide(4)"></span>
@@ -118,7 +123,7 @@
 
   </div>
   <div id="weatherBox">
-    <h2>WeatherPanel</h2>
+    <h2 id = "weatherTitle">WeatherPanel</h2>
   </div>
 
   <div id="settingsBox">
