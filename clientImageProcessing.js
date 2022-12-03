@@ -100,7 +100,7 @@ function handleQueryImages(data, status){
     
     if(paths.length > 1){
         var notice = document.createElement("p");
-        $(notice).html("There are multiple results for this query; please select an image to download.");
+        $(notice).html("There are multiple results for this query; please click to select an image to download.");
         $(notice).attr("id", "multipleQueryResultsNotice");
         $(imageBox_images).append(notice);
     }
