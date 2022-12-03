@@ -104,7 +104,7 @@ function handleQueryImages(data, status){
         var imageID = "imageBoxImg"+i;
         $(image).attr("id", imageID);
         $(image).attr("src", serverLocation+paths[i]);
-        $(image).attr("data-downloadPath", names[i]);
+        $(image).attr("data-downloadPath", serverLocation+paths[i]);
         $(image).attr("onclick", "selectImage(\""+imageID+"\")");
         $(imageBox_images).append(image);
 
@@ -148,9 +148,6 @@ function checkImageDownload(){
     }
 
 }
-
-
-
 
 function triggerError(statusCode){
     $("#content").append(birbContent);
