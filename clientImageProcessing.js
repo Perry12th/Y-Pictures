@@ -53,6 +53,10 @@ function getBirb(){
 
 function queryImages(){
     var queryName = document.getElementById("input").value;
+    if(queryName == undefined || queryName.length() == 0){
+        alert("Search cannot be empty");
+        return;
+    }
     /*
     query server ->
     list of matching names and images <-
