@@ -18,7 +18,9 @@
   <script src="onLoad.js"></script>
 </head>
 
-<h1 id="logo">Logo Team Y</h1>
+<!-- Anime: Humanity has Declined -->
+<!-- Character: Y -->
+<h1 id="logo">Team Y <img src = "public/games/Y_logo.jpg"></h1>
 <br>
 
 <body id ="background">
@@ -30,13 +32,13 @@
     </p>
     <br>
     <p>When the button is pressed,
-      there are two results that will occur: it will either fail or the string is sucessfully received and the server will send back an image. There is a custom weather API built on
+      there are two results that will occur: it will either send no result or the string is successfully received and the server will send back an image. There is a custom weather API built on
       the website to view the weather and temperature ranging from Saturday to Friday. At the very bottom of the page, there are optional settings the user can choose to satisfy their
-      viewing experience. They can either change the background-color, listen to music or, enable sound effects on buttons.
+      viewing experience. They can either change the background-color, listen to music, or enable sound effects on buttons.
     </p>
     <br>
     <p>
-      Please note: You must install Node JS in order to connect to the database. Then open the terminal and type "node server.js".
+      Please note: You must install Node JS to connect to the database. Then open the terminal in VS Code and type "node server.js".
     </p>
   </div>
   <!-- Main box -->
@@ -112,9 +114,9 @@
   </div>
   <div id="imageButtons">
   <input id = "input"></input>
-  <button class = "button" id = "enter" onclick="queryImages()">Enter</button>
+  <button class = "button" id = "enter" onclick="queryImages(); PlayClickEffect()">Enter</button>
   <a id="imageDownloadLink" target="_blank" download>
-    <button class = "button" id = "download" onclick="checkImageDownload()">Download</button>
+    <button class = "button" id = "download" onclick="checkImageDownload(); PlayClickEffect()">Download</button>
   </a>
   </div>
   <div id="imageBox">

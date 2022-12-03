@@ -1,8 +1,14 @@
 /* Raleway and Merriweather are custom fonts installed in HTML */
 
 h1 {
-  font-family: 'Raleway', sans-serif;
+  font-family: 'Raleway', 'sans-serif';
   font-size: 48px;
+}
+
+h1 img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 h2 {
@@ -147,6 +153,11 @@ p {
   padding: 20px;
 }
 
+#imageBox_images img {
+  width: 640px;
+  height: auto;
+}
+
 #imageButtons {
   width: 100%;
   margin: auto;
@@ -154,28 +165,42 @@ p {
   overflow: auto;
   padding: 20px;
 }
+
+img {
+  width: 144px;
+  height: auto;
+}
+
 #weatherBox {
-  width: 80%;
+  width: 90%;
   margin: auto;
   text-align: center;
   overflow: auto;
   padding: 20px;
 }
-#weatherCardBox{
+
+#weatherCardBox {
   display:flex;
   justify-content: center;
 }
-.weatherCard{
+
+.weatherCard {
+  font-family: 'Raleway', 'sans-serif';
   border-style: solid;
   border-width: 2px;
   background: #a1d5e2;
 }
-.weatherDay{
+
+.weatherDay {
+  font-size: 16px;
   font-family: 'Merriweather', 'sans-serif';
 }
-.cardTemp{
+
+.cardTemp {
+  font-size: 20px;
   font-family: 'Merriweather', 'sans-serif';
 }
+
 #logo {
   width: 100%;
   margin: auto;
@@ -183,12 +208,14 @@ p {
   overflow: auto;
   padding: 20px;
 }
+
 #copyright {
   margin: auto;
   text-align: left;
   overflow: auto;
   padding: 20px;
 }
+
 #background {
   background-color: #f2f2f6;
 }
