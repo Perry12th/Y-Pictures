@@ -17,8 +17,6 @@ function ToggleDarkMode()
     var settingsBox = document.getElementById("settingsBox");
     var copyright = document.getElementById("copyright");
     var colorMode = document.getElementById("colorMode");
-    var musicMode = document.getElementById("musicMode");
-    var soundMode = document.getElementById("soundMode");
 
     if (darkMode)
     {
@@ -48,24 +46,24 @@ function ToggleDarkMode()
     {
         document.body.style.background = "gray";
 
-        logo.style.color = "white";
+        logo.style.color = "#f2f2f6";
 
-        projectDescriptionBox.style.color = "white";
+        projectDescriptionBox.style.color = "#f2f2f6";
 
-        projectDescriptionBoxHeader.style.color = "white";
+        projectDescriptionBoxHeader.style.color = "#f2f2f6";
         
 
         imageListBox.style.borderBlockColor = "black";
-        imageListBox.style.color = "white";
+        imageListBox.style.color = "#f2f2f6";
 
         imageBox.style.borderBlockColor = "black";
-        imageBox.style.color = "white";
+        imageBox.style.color = "#f2f2f6";
 
-        weatherBox.style.color = "white";
+        weatherBox.style.color = "#f2f2f6";
 
-        settingsBox.style.color = "white";
+        settingsBox.style.color = "#f2f2f6";
 
-        copyright.style.color = "white";
+        copyright.style.color = "#f2f2f6";
 
         colorMode.textContent = "Disable Dark Mode";
     }
@@ -76,7 +74,6 @@ function ToggleDarkMode()
 
 function ToggleBackgroundMusic()
 {
-    // Use these to change button's text
     musicEnabled = !musicEnabled;
     var musicMode = document.getElementById("musicMode");
     if (musicEnabled)
@@ -106,7 +103,6 @@ function stopMusic()
 
 function ToggleSoundEffects()
 {
-    // Use these to change button's text
 
     audioEnabled = !audioEnabled;
     var soundMode = document.getElementById("soundMode");
@@ -167,7 +163,7 @@ function slide(num) {
     }
 
     for (var i = 0; i < dots.length; i++) {
-        dots[i].className = dots[i].className.replace("active", "")
+        dots[i].className = dots[i].className.replace("active", "");
     }
 
     slider[counter - 1].style.display = "block";
