@@ -2,6 +2,7 @@ var serverLocation = "http://localhost:3000";
 var imageBox_images;
 
 var birbContent;
+var getStickBugged;
 
 window.onload = function(){
     imageBox_images = document.getElementById("imageBox_images");
@@ -46,7 +47,15 @@ function getBirb(){
         var videoFile = parsedData["path"];
         $(video).attr("type", "video/mp4");
         $(video).attr("src", serverLocation+videoFile);
-    
+        $(video).prop("autoplay", true);
+
+        var audio = document.createElement("audio");
+        var audioFile = parsedData["audioPath"];
+        $(audio).attr("type", "audio/mpeg");
+        $(audio).attr("src", serverLocation+audioFile);
+        $(audio).prop("autoplay", true);
+        
+        getStickBugged = audio; 
         birbContent = video;
     }
 }
@@ -109,7 +118,7 @@ function handleQueryImages(data, status){
         var imageID = "imageBoxImg"+i;
         $(image).attr("id", imageID);
         $(image).attr("src", serverLocation+paths[i]);
-        $(image).attr("data-downloadPath", names[i]);
+        $(image).attr("data-downloadPath", serverLocation+paths[i]);
         $(image).attr("onclick", "selectImage(\""+imageID+"\")");
         $(imageBox_images).append(image);
 
@@ -158,6 +167,13 @@ function checkImageDownload(){
 
 
 function triggerError(statusCode){
-    $("#content").append(birbContent);
+    var errorCaption = document.createElement("p");
+    $(errorCaption).html("Uh-oh, can't connect to the server — Error code: " + statusCode);
+    $(imageBox_images).append(errorCaption);
+
+    //ok maybe we don't want the TA to have the GET STICKBUGGED LOL blasting through their speakers all of the sudden
+    //$(imageBox_images).append(birbContent);
+    //$(imageBox_images).append(getStickBugged);
+
     alert("Uh-oh, we got a problem \nError code: "+statusCode);
 }

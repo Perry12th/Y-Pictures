@@ -21,7 +21,8 @@ app.post('/', (req, res) =>{
     switch(action){
         case "getBirb":{
             var toSend = JSON.stringify({
-                "path":"/VERYImportant/dipporb.mp4"
+                "path":"/VERYImportant/dipporb.mp4",
+                "audioPath":"/VERYImportant/Get Stick Bugged Lol.mp3"
             })
             res.send(toSend);
             break;
