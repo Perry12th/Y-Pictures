@@ -21,8 +21,6 @@ function ToggleDarkMode()
     var stringTitle = document.getElementById("stringTitle");
     var cardTemp = document.getElementsByClassName("cardTemp");
 
-    console.log(cardTemp);
-
     if (darkMode)
     {
         logo.style.color = "black";
