@@ -54,7 +54,15 @@ app.post('/', (req, res) =>{
 
 const allImagePaths = [
     "/games/Hollow Knight - Broken Vessel.jpg",
-    "/games/Elite Dangerous - The Cerulean Gas Giant - Maia A 1.jpg"
+    "/games/Elite Dangerous - The Cerulean Gas Giant - Maia A 1.jpg",
+    "/games/God of War.jpg",
+    "/games/League of Legends.jpg",
+    "/games/Legend of Zelda - Nice Game.jpg",
+    "/games/Terraria - 2d minecraft.jpg",
+    "/games/Tetris - Everyone knows this.jpg",
+    "/games/Forza Horizon 5 - Crusing on the countryside.jpg",
+    "/games/Titanfall 2 - IT'S FASTBALL TIME.jpg",
+    "/games/Minecraft - Is this really Minecraft.jpg",
 ];
 
 //returns a list of image paths
