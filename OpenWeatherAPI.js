@@ -1,6 +1,6 @@
 
 // Function is called once the html page has loaded
-window.onload = onHTMLLoaded();
+window.onload = fetchWeatherData();
 
 // If the getCurrentPosition call is successful then we pass the user location to the openWeather API 
 function onLocationSuccess(position)
@@ -38,13 +38,13 @@ function onHTMLLoaded()
 
 
 // Using the latitude and longitude to fetch weather data from OpenWeather API via API key
-function fetchWeatherData(latitude, longitude)
+function fetchWeatherData()
 {
-    console.log(latitude);
-    console.log(longitude);
+    var torontoLatitude = 43.65;
+    var torontoLongitude = -79.38;
     var apiKey = '3de34fbb2c3485ba723ca873f8379cb9';
     var exculde = 'hourly,minutely,alerts';
-    var openWeatherUrl = 'https://api.openweathermap.org/data/3.0/onecall?lat='+latitude+'&lon='+longitude+'&exclude='+exculde+'&appid='+apiKey;
+    var openWeatherUrl = 'https://api.openweathermap.org/data/3.0/onecall?lat='+torontoLatitude+'&lon='+torontoLongitude+'&exclude='+exculde+'&appid='+apiKey;
     var defaultUrl = 'https://api.openweathermap.org/data/3.0/onecall?lat=43.65&lon=-79.38&exclude=&appid=3de34fbb2c3485ba723ca873f8379cb9';
     // Fetch the weather data
     fetch(openWeatherUrl)
