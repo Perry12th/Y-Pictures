@@ -21,7 +21,8 @@ app.post('/', (req, res) =>{
     switch(action){
         case "getBirb":{
             var toSend = JSON.stringify({
-                "path":"/VERYImportant/dipporb.mp4"
+                "path":"/VERYImportant/dipporb.mp4",
+                "audioPath":"/VERYImportant/Get Stick Bugged Lol.mp3"
             })
             res.send(toSend);
             break;
@@ -114,12 +115,25 @@ function getMatchingOf(queryString){
         imageName = removeSpacesFromString(imageName).toLowerCase();
 
         //determine if the query string is a match
-        var doesMatch = true;
-        for(var j = 0; j < queryString.length; j++){
-            if(imageName.charAt(j) != queryString.charAt(j)){
-                doesMatch = false;
-                break;
+        var doesMatch = false;
+        for(var j = 0; j < imageName.length; j++){
+            //first, find the index of the first character in the name that matches the first character of query
+            if(imageName.charAt(j) != queryString.charAt(0)){
+                //skip this iteration if it doesn't match
+                continue;
             }
+
+            //each time the (above condition) is triggered, check the *next* <query string length> characters for a match
+            for(var k = j; (k - j < queryString.length) && (k < imageName.length); k++){
+                doesMatch = true;
+                //break and false if there is a non-matching character
+                if(imageName.charAt(k) != queryString.charAt(k - j)){
+                    doesMatch = false;
+                    break;
+                }
+            }
+            //if a match was found based on the above loop, exit early
+            if(doesMatch) break;
         }
         if(doesMatch){
             matches.push(imagePath); //add it to matches if so
