@@ -7,7 +7,7 @@ h1 {
 
 h2 {
   font-family: 'Raleway', 'sans-serif';
-  font-size: 25px;
+  font-size: 35px;
 }
 
 p {
@@ -18,9 +18,7 @@ p {
 #imageListBox{
   position: relative;
   width: 100%;
-  margin: auto;
   text-align: center;
-  overflow: auto;
 }
 
 #imageListBox h2 {
@@ -34,11 +32,8 @@ p {
   width: 711.20px;
   border: solid;
   border-width: 2px;
-}
-
-img {
-  max-height: 100%;
-  max-width: 100%;
+  font-size: 25px;
+  font-family: 'Merriweather', 'sans-serif';
 }
 
 .slider {
@@ -51,13 +46,13 @@ img {
   top: 50%;
   width: auto;
   border-radius: 25%;
-  color: grey;
+  color: black;
   z-index: 2;
   
   margin-top: -20px;
   padding: 20px;
   font-weight: bold;
-  font-size: 16px;
+  font-size: 32px;
   justify-content: center;
   align-content: center;
 }

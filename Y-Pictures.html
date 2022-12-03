@@ -21,65 +21,68 @@
 <body id ="background">
   <div id="projectDescriptionBox">
     <h2 id = projectDescriptionBoxHeader> Project Description </h2>
-    <P> It's not only writers who can benefit from this free online tool. If you're a programmer who's working on a project where blocks of text are needed, this tool can be a great way to get that. It's a good way to test your programming and that the tool being created is working well.
-
-        Above are a few examples of how the random paragraph generator can be beneficial. The best way to see if this random paragraph picker will be useful for your intended purposes is to give it a try. Generate a number of paragraphs to see if they are beneficial to your current project.
-        
-        If you do find this paragraph tool useful, please do us a favor and let us know how you're using it. It's greatly beneficial for us to know the different ways this tool is being used so we can improve it with updates. This is especially true since there are times when the generators we create get used in completely unanticipated ways from when we initially created them. If you have the time, please send us a quick note on what you'd like to see changed or added to make it better in the future</P>
+    <p> For our project, we had developed a database of string prompts that will be hosted on a remote server which is connected to a webpage that allows users to get an image from
+      the server and the option to download the image afterwards. Within the String List, there are 10 total string prompts that can be viewed through the carousel by clicking on the
+      at the sides or the dots at the bottom. Once the user finds the appropiate string prompt, they can type the prompt in the textbox and pressed enter.
+    </p>
+    <br>
+    <p>When the button is pressed,
+      there are two results that will occur: it will either fail or the string is sucessfully received and the server will send back an image. There is a custom weather API built on
+      the website to view the weather and temperature ranging from Sunday to Saturday. At the very bottom of the page, there are optional settings the user can choose to satisfy their
+      viewing experience. They can either change the background-color, activate background-music or, enable sound effects on buttons.</p>
   </div>
   <!-- Main box -->
   <div id="imageListBox">
-    <h2>ImageList</h2>
+    <h2>String List</h2>
 
-    <!-- Full Image Selection -->
+    <!-- Full String List Selection -->
+    <!-- Each slide will contain a string input for the user to insert into the textbox -->
     <div class = "image_container">
 
       <div class = "slider" style = "display: block;">
-        <img id="imageList1" src = "public/games/Elite Dangerous - The Cerulean Gas Giant - Maia A 1.jpg" alt = "image 1">
+        <div id = "imageList1">Elite Dangerous</div>
       </div>
 
       <div class = "slider">
-        <img id="imageList2" src = "public/games/Forza Horizon 5 - Crusing on the countryside.jpg" alt = "image 2">
+        <div id = "imageList2">Forza Horizon 5</div>
       </div>
 
       <div class = "slider">
-        <img id="imageList3" src = "public/games/Hollow Knight - Broken Vessel.jpg" alt = "image 3">
+        <div id = "imageList3">Hollow Knight</div>
       </div>
       
       <div class = "slider">
-        <img id="imageList4" src = "public/games/Minecraft - Is this really Minecraft.jpg" alt = "image 4">
+        <div id = "imageList4">Minecraft</div>
       </div>
         
       <div class = "slider">
-        <img id="imageList5" src = "public/games/Titanfall 2 - IT'S FASTBALL TIME.jpg" alt = "image 5">
+        <div id = "imageList5">Titanfall 2</div>
       </div>
         
       <div class = "slider">
-        <img id="imageList6" src = "public/games/Tetris - Everyone knows this.jpg" alt = "image 6">
+        <div id = "imageList6">Tetris</div>
       </div>
         
       <div class = "slider">
-        <img id="imageList7" src = "public/games/Legend of Zelda - Nice game.jpg" alt = "image 7">
+        <div id = "imageList7">Legend of Zelda</div>
       </div>
         
       <div class = "slider">
-        <img id="imageList8" src = "public/games/Terraria - 2d Minecraft.jpg" alt = "image 8">
+        <div id = "imageList8">Terraria</div>
       </div>
         
       <div class = "slider">
-        <img id="imageList9" src = "public/games/League of Legends.jpg" alt = "image 9">
+        <div id = "imageList9">League of Legends</div>
       </div>
         
       <div class = "slider">
-        <img id="imageList10" src = "public/games/God of War.jpg" alt = "image 10">
+        <div id = "imageList10">God of War</div>
       </div>
 
-      <!-- Left & Right Arrows -->
       <a class = "arrow" id = "left_arrow" onclick = addSlide(-1)><</a>
       <a class = "arrow" id = "right_arrow" onclick = addSlide(1)>></a>
     </div>
     
-      <!-- Dots: Instead of buttons, maybe I should use span? div? section? -->
       <div style = "text-align: center">
         <div id = "row_1">
           <span class = "dots" onclick = "currentSlide(1)"></span>
@@ -125,7 +128,7 @@
   </div>
 
   <br>
-  <h3 id="copyright">Copyright © 2022 Designed by Andrew Ho</h3>
+  <h3 id="copyright">Copyright © 2022 Designed by Andrew Ho, Xue Feng Dong, Flavio Araujo Silva</h3>
 </body>
 
 </html>
