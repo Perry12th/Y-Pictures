@@ -1,6 +1,9 @@
 
 // Function is called once the html page has loaded
-window.onload = fetchWeatherData();
+//called from onLoad.js
+function loadWeatherData(){
+    fetchWeatherData()
+}
 
 // If the getCurrentPosition call is successful then we pass the user location to the openWeather API 
 function onLocationSuccess(position)
