@@ -31,13 +31,16 @@ p {
   background-color: white;
   margin: auto;
   height: 400px;
-  width: 100%;
-  max-width: 800px;
+  width: 711.20px;
   border: solid;
   border-width: 2px;
 }
 
-/* The idea is to make all but 1 image display none as default. */
+img {
+  max-height: 100%;
+  max-width: 100%;
+}
+
 .slider {
   display: none;
 }
@@ -57,7 +60,6 @@ p {
   font-size: 16px;
   justify-content: center;
   align-content: center;
-
 }
 
 .arrow:hover {
@@ -65,11 +67,11 @@ p {
 }
 
 #left_arrow {
-  left: 30%;
+  left: 33%;
 }
 
 #right_arrow {
-  right: 30%;
+  right: 33%;
 }
 
 .slider {
@@ -112,6 +114,7 @@ p {
 }
 
 #settingsBox button {
+  cursor: pointer;
   font-family: 'Merriweather', 'sans-serif';
   padding: 15px;
   border-radius: 5%;
