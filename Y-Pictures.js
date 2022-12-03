@@ -155,7 +155,7 @@ function slide(num) {
     }
 
     slider[counter - 1].style.display = "block";
-    slider[counter - 1].style.paddingTop = "27.5%";
+    
     dots[counter - 1].className += " active";
 }
 
