@@ -4,7 +4,7 @@ var imageBox_images;
 var birbContent;
 var getStickBugged;
 
-window.onload = function(){
+function loadImageProcessing(){
     imageBox_images = document.getElementById("imageBox_images");
     getBirb();
     populateImageList();
