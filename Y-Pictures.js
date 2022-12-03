@@ -130,18 +130,6 @@ function PlayClickEffect()
 // Sub slider algorithm
 var counter = 1;
 
-slide(counter)
-
-function addSlide(num) {
-    slide(counter = counter + num)
-    PlayClickEffect();
-}
-
-function currentSlide(num) {
-    slide(counter = num);
-    PlayClickEffect();
-}
-
 // Main slider algorithm
 function slide(num) {
     var slider = document.getElementsByClassName("slider");
@@ -167,5 +155,16 @@ function slide(num) {
     }
 
     slider[counter - 1].style.display = "block";
+    slider[counter - 1].style.paddingTop = "27.5%";
     dots[counter - 1].className += " active";
+}
+
+function addSlide(num) {
+    slide(counter = counter + num)
+    PlayClickEffect();
+}
+
+function currentSlide(num) {
+    slide(counter = num);
+    PlayClickEffect();
 }
