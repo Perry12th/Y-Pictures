@@ -82,6 +82,7 @@ function sendQuery(queryName, callbackFunction){
         "action":"queryImages",
         "queryName":queryName
     });
+
     $.post(serverLocation+"?data="+request, callbackFunction).fail(function(){triggerError("Generic error")})
 }
 

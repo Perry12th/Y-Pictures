@@ -52,26 +52,27 @@ app.post('/', (req, res) =>{
     }
 )
 
-
-const allImagePaths = [
-    "/games/Hollow Knight - Broken Vessel.jpg",
-    "/games/Elite Dangerous - The Cerulean Gas Giant - Maia A 1.jpg",
-    "/games/God of War.jpg",
-    "/games/League of Legends.jpg",
-    "/games/Legend of Zelda - Nice Game.jpg",
-    "/games/Terraria - 2d minecraft.jpg",
-    "/games/Tetris - Everyone knows this.jpg",
-    "/games/Forza Horizon 5 - Crusing on the countryside.jpg",
-    "/games/Titanfall 2 - IT'S FASTBALL TIME.jpg",
-    "/games/Minecraft - Is this really Minecraft.jpg",
-];
-
 //returns a list of image paths
 function getImagePaths(){
+
+    const allImagePaths = [
+        "/games/Hollow Knight - Broken Vessel.jpg",
+        "/games/Elite Dangerous - The Cerulean Gas Giant - Maia A 1.jpg",
+        "/games/God of War.jpg",
+        "/games/League of Legends.jpg",
+        "/games/Legend of Zelda - Nice Game.jpg",
+        "/games/Terraria - 2d minecraft.jpg",
+        "/games/Tetris - Everyone knows this.jpg",
+        "/games/Forza Horizon 5 - Crusing on the countryside.jpg",
+        "/games/Titanfall 2 - IT'S FASTBALL TIME.jpg",
+        "/games/Minecraft - Is this really Minecraft.jpg",
+    ];
+
     return allImagePaths;
 }
 
-//returns just the image name from the inputted path based on forward slashes; e.g. /files/pictures/games/Hollow Knight.png -> Hollow Knight
+//returns just the image name from the inputted path based on forward slashes; 
+//e.g. /files/pictures/games/Hollow Knight.png -> Hollow Knight
 function getImageNameFromPath(path){
     var lastForwardSlashPos = 0;
     //identify the index of the last foward slash
@@ -90,6 +91,7 @@ function getImageNameFromPath(path){
 }
 
 //given an array of paths, return the name (everything after the last forward slash)
+//ex: /folder1/folder2/folder3/filename.txt -> filename.txt
 function getNamesFromPaths(paths){
     var names = [];
     for(var i = 0; i < paths.length; i++){
@@ -98,7 +100,7 @@ function getNamesFromPaths(paths){
     return names;
 }
 
-//returns the list ofpaths with a name that matches (at least partially) the query string
+//returns the list of paths with a name that matches (at least partially) the query string
 function getMatchingOf(queryString){
 
     var imagePaths = getImagePaths();
