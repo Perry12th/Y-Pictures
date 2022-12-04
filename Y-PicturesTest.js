@@ -36,9 +36,9 @@ describe('Testing the functions of the Y-Pictures Projects', function () {
         assert.exists(imagePaths);
     });
     it('Test 3: GetImageNameFromPath returns just the image name from the inputted path based on forward slashes', function(){
-
+        assert.equal(getImageNameFromPath('/files/pictures/games/Hollow Knight.png'),'Hollow Knight.png');
     });
-    it('Test 4: ', function(){
-
+    it('Test 4: Given a string containing spaces remove all spaces from that string', function(){
+        assert.equal(removeSpacesFromString("H o l l o w  K n i g h t.   p n g"),'HollowKnight.png');
     });
 });
