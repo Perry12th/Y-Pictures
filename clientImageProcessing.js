@@ -60,9 +60,12 @@ function getBirb(){
     }
 }
 
-function queryImages(){
+function queryImages(queryName){
     
-    var queryName = document.getElementById("input").value;
+    if(queryName == undefined){
+        queryName = document.getElementById("input").value;
+    }
+
     if(queryName == undefined || queryName.length == 0){
         alert("Search cannot be empty");
         return;
@@ -72,12 +75,14 @@ function queryImages(){
     list of matching names and images <-
     update the ImgBox
     */
+    sendQuery(queryName, handleQueryImages);
+}
+function sendQuery(queryName, callbackFunction){
     var request = JSON.stringify({
         "action":"queryImages",
         "queryName":queryName
     });
-    $.post(serverLocation+"?data="+request, handleQueryImages).fail(function(){triggerError("Generic error")})
-
+    $.post(serverLocation+"?data="+request, callbackFunction).fail(function(){triggerError("Generic error")})
 }
 
 //used to track what's currently in the image display so that they can be refresh with each inquiry
