@@ -48,7 +48,6 @@ function fetchWeatherData()
     var apiKey = '3de34fbb2c3485ba723ca873f8379cb9';
     var exculde = 'hourly,minutely,alerts';
     var openWeatherUrl = 'https://api.openweathermap.org/data/3.0/onecall?lat='+torontoLatitude+'&lon='+torontoLongitude+'&exclude='+exculde+'&appid='+apiKey;
-    var defaultUrl = 'https://api.openweathermap.org/data/3.0/onecall?lat=43.65&lon=-79.38&exclude=&appid=3de34fbb2c3485ba723ca873f8379cb9';
     // Fetch the weather data
     fetch(openWeatherUrl)
     .then(resp =>{

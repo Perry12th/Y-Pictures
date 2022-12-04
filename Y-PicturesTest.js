@@ -31,10 +31,11 @@ describe('Testing the functions of the Y-Pictures Projects', function () {
         }
 
     });
-    it('Test 2: ', function(){
-
+    it('Test 2: Server contains the pathways for all images in the database', function(){
+        var imagePaths = getImagePaths();
+        assert.exists(imagePaths);
     });
-    it('Test 3: ', function(){
+    it('Test 3: GetImageNameFromPath returns just the image name from the inputted path based on forward slashes', function(){
 
     });
     it('Test 4: ', function(){
